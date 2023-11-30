@@ -1,8 +1,12 @@
-class Register {
+class registerPage {
     visit(){
         cy.visit("/")
     }
-    isVisibleLogo(){
+ //  constructor(){
+ //      
+
+ //  }
+   isVisibleLogo(){
         return cy.get('.logo.pull-left').should('be.visible')
     }
     clickSignUpLink(){
@@ -20,8 +24,11 @@ class Register {
     clickLoginButton(){
         return cy.get('#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > button').click()
     }
-    isErrorMessageVisible(text){
-        return cy.get('#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > p').should('eq', text)
+    isErrorMessageVisible(){
+        return cy.get('.login-form > form > p').contains("is incorrect!")
     }
+    
 
 }
+
+export default new registerPage();
