@@ -1,3 +1,4 @@
+// import registerPage from "../../../pages/registerPage"
 import registerPage from "../../../pages/registerPage"
 //const { defineConfig } = require("cypress")
 
@@ -11,6 +12,5 @@ describe('invalid email and password to the register section', () => {
       registerPage.typePassword("abcdefgh")
       registerPage.clickLoginButton()
       registerPage.isErrorMessageVisible()
-      
     })
   })

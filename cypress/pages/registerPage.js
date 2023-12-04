@@ -2,12 +2,9 @@ class registerPage {
     visit(){
         cy.visit("/")
     }
- //  constructor(){
- //      
-
- //  }
    isVisibleLogo(){
-        return cy.get('.logo.pull-left').should('be.visible')
+        let logo = cy.get('.logo.pull-left')
+        return logo.should('be.visible')
     }
     clickSignUpLink(){
         return cy.get('#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a').click()
@@ -26,6 +23,23 @@ class registerPage {
     }
     isErrorMessageVisible(){
         return cy.get('.login-form > form > p').contains("is incorrect!")
+    }
+
+
+
+    //////////////// Signup Field Elements and Functions
+
+    sendTextName(name){
+        return cy.get('[data-qa="signup-name"]').type(name)
+    }
+    sendTextEmail(email){
+        return cy.get('[data-qa="signup-email"]').type(email)
+    }
+    clickSignButton(){
+        return cy.get('[data-qa="signup-button"]').click()
+    }
+    isExistPVisible(){
+        return cy.get('#form > div > div > div:nth-child(3) > div > form > p').contains('already exist!')
     }
     
 

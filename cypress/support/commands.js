@@ -28,3 +28,4 @@
 Cypress.Commands.add('clickk', (element) => {
     cy.get('a').contains(element).click()
 })
+
