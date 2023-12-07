@@ -6,7 +6,7 @@ describe('signup with registered email and name', () => {
         registerPage.isVisibleLogo()
         registerPage.clickSignUpLink()
         registerPage.isLoginHeaderVisible()
-        registerPage.sendTextName("abc")
+        registerPage.sendTextName()
         registerPage.sendTextEmail("abc@hotmail.com")
         registerPage.clickSignButton()
         registerPage.isExistPVisible()
