@@ -14,7 +14,7 @@ describe('Logout User', function () {
 
     //Provide the data read from the fixture
     registerPage.visit();
-    registerPage.isPageLoaded()
+    registerPage.isHomePageLoaded()
     contactPage.clickContactLink()
     contactPage.isGetInTouchH2Visible()
     contactPage.sendTextToNameInput(this.data.username)
@@ -29,7 +29,7 @@ describe('Logout User', function () {
     contactPage.clickSubmitButton()
     contactPage.verifySuccessMessage()
     contactPage.clickHomeButton()
-    registerPage.isPageLoaded()
+    registerPage.isHomePageLoaded()
     
 
   })
