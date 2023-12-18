@@ -14,15 +14,10 @@ describe('Login User with correct email and password', function () {
 
     //Provide the data read from the fixture
     registerPage.visit();
-    registerPage.isPageLoaded()
+    registerPage.isHomePageLoaded()
     registerPage.clickSignUpLink()
-    registerPage.isLoginToYourAccountVisible()
-    cy.get('[data-qa="login-email"]').type(this.data.emailLogin)
-    cy.get('[data-qa="login-password"]').type(this.data.passwordLogin)
-    registerPage.clickLoginButton()
-    registerPage.isUsernameVisible()
-    // registerPage.clickDeleteButton()
-    // registerPage.isAccountDeletedVisible()
+    cy.loginUser(this.data.emailLogin, this.data.passwordLogin)
+    //cy.deleteUser()
 
   })
 })

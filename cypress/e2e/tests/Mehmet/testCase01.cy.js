@@ -10,41 +10,18 @@ describe('Register User', function () {
     })
   })
 
-  it('Cypress Test Case - Understanding Fixtures', function () {
-
-    //Provide the data read from the fixture
+  it('User Register', function () {
+  
     registerPage.visit();
-    registerPage.isPageLoaded()
+    registerPage.isHomePageLoaded()
     registerPage.clickSignUpLink()
-    registerPage.isNewUserSignupVisible()
-
-    cy.get('[data-qa="signup-name"]').type(this.data.username)
-    cy.get('[data-qa="signup-email"]').type(this.data.emailLogin)
-    registerPage.clickSignButton()
-    registerPage.isEnterAccountInformationVisible()
-    registerPage.clickTitle()
-    cy.get('[data-qa="password"]').type(this.data.passwordLogin)
-    registerPage.clickDateOfBirth()
-    registerPage.clickNewsletter()
-    registerPage.clickOffer()
-    registerPage.typeFirstname()
-    registerPage.typeLastname()
-    registerPage.typeCompany()
-    registerPage.typeStreet()
-    registerPage.chooseCountry()
-    registerPage.typeState()
-    registerPage.typeCity()
-    registerPage.typeZipCode()
-    registerPage.typeMobileNumber()
-    registerPage.clickCreateAccount()
-    registerPage.isAccountCreatedVisible()
+    // Bu metot kullanici registration islemi yapiyor
+    // New User Signup!, EnterAccountInformation
+    cy.registerUser(this.data.username, this.data.email, this.data.password)
     registerPage.clickContinueButton()
-    registerPage.isUsernameVisible()
-    // registerPage.clickDeleteButton()
-    // registerPage.isAccountDeletedVisible()
-    // registerPage.clickContinueButton()
-    
-    
-
+    registerPage.isUsernameVisible(this.data.username)
+    cy.deleteUser()
+    registerPage.clickContinueButton()
+  
   })
 })
