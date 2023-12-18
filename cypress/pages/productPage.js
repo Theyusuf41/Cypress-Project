@@ -35,5 +35,13 @@ class productPage {
             console.log('False')
         }
     }
+
+    /// Case 12 Elements and Functions start from here
+    hoverACard(){
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center').trigger('mouseenter')
+    }
+    clickAddCartAnchor(){
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.product-overlay > div > a').click({ force:true })
+    }
 }
 export default new productPage();
