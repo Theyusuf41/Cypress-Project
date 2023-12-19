@@ -48,11 +48,24 @@ class productPage {
     }
 
     /// Case 12 Elements and Functions start from here
-    hoverACard(){
-        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center').trigger('mouseenter')
+    hoverFirstCard(){
+        cy.scrollTo(0,500)
+        cy.wait(2000)
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center').should('be.visible')
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.productinfo.text-center').invoke('show').trigger('mouseover')
+        .wait(3000)
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.product-overlay > div > a > i').click({ force:true })
+        cy.wait(1000)
+        cy.get('#cartModal > div > div > div.modal-footer > button').click()
     }
-    clickAddCartAnchor(){
-        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.single-products > div.product-overlay > div > a').click({ force:true })
+    hoverSecondCard(){
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(4) > div > div.single-products > div.productinfo.text-center').should('be.visible')
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(4) > div > div.single-products > div.productinfo.text-center').invoke('show').trigger('mouseover')
+        .wait(3000)
+        cy.get('body > section:nth-child(3) > div > div > div.col-sm-9.padding-right > div > div:nth-child(4) > div > div.single-products > div.product-overlay > div > a > i').click({ force:true })
+        cy.wait(1000)
+        cy.get('#cartModal > div > div > div.modal-body > p:nth-child(2) > a').click()
     }
+    
 }
 export default new productPage();
